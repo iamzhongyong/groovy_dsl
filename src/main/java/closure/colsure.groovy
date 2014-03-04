@@ -25,3 +25,22 @@ greetString = { greet,name = "iamzhongyong" ->
 }
 assert greetString("welcome") == "welcome,iamzhongyong"
 assert greetString("hello","bixiao.zy") == "hello,bixiao.zy"
+
+//使用闭包实现单方法接口 
+interface Test {
+	def one()
+}
+def test = {println 'one'} as Test 
+test.one()
+
+//使用闭包实现多方法接口 
+interface Test {
+	def one()
+	def two()
+}
+def test = [
+	one: {println 'one'},
+	two: {println 'two'}
+	] as Test
+test.one()
+test.two()
